@@ -42,7 +42,7 @@
                 return "You Lose!";
              }
          
-            } 
+            }               
 //We could make a new function and store the values of playerSelection inside of it, just like we did with computerChoice();
              let player = prompt("Rock, Paper or Scissors?");
              const playerSelection = player.toLowerCase();
