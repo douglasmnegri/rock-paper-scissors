@@ -2,7 +2,48 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="styles.css">
         <title>Rock, Paper, Scissors</title>
+        <style>
+            @import url('https://fonts.cdnfonts.com/css/new-walt-disney-font');
+        </style>
+        <body>
+            <h1 id="main-title">Rock Paper Scissors</h1>
+
+        <div class="container">
+        <div class="box">
+            <img class="images-rock" src="./images/rock.png" alt="mickeys hand with rock gesture">
+        </div>
+        <button class="playgame" id="rock">Rock</button>
+
+        <div class="box">
+            <img class="images-paper" src="./images/paper.png" alt="mickeys hand with paper gesture">
+        </div>
+        <button class="playgame paper-pad" id="paper">Paper</button>
+
+        <div class="box">
+            <img class="images-scissor" src="./images/scissor.png" alt="mickeys hand with scissor gesture">
+        </div>
+        <button class="playgame" id="scissors">Scissor</button>
+        </div>
+
+        <div class="scoreBox">
+        <div class="containerBox">
+            <div class="myfont">Player</div>
+            <div id="playerScore">0</div>
+        </div>
+    <div class="theInput">
+        <div id="playerInput" class="myfont">Player input: </div>
+        <div id="computerInput" class="myfont">Computer input: </div>
+        <div id="roundResult" class="myfont">Result: </div>
+    </div>
+        <div class="containerBox">
+            <div class="myfont">Computer</div> 
+            <div id="computerScore">0</div>
+        </div>   
+        </div>
         <script src="file.js"></script>
+
+        </body>
     </head>
 </html>

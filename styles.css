@@ -1,0 +1,84 @@
+@keyframes color-change {
+    0% {
+        color: #ee6055;
+      }
+      25% {
+        color: #60d394;
+      }
+      50% {
+        color: #aaf683;
+      }
+      75% {
+        color: #ffd97d;
+      }
+      100% {
+        color: #ff9b85;
+      }
+}
+
+#main-title {
+    display: flex;
+    justify-content: center;
+    border: solid black;
+    font-family: 'New Walt Disney Font', sans-serif;
+    font-size: 72px;
+}
+
+.images-paper {
+    width: 150px
+}
+
+.images-rock {
+    width: 120px;
+}
+
+.images-scissor {
+    width: 110px;
+}
+
+.container {
+     display: flex;
+     justify-content: center;
+     border: solid black;
+     align-items: center;
+}
+
+.box {
+    padding: 100px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.playgame {
+    text-align: center;
+    margin-top: 15px;
+    padding-left: 15px;
+    font-size: 48px;
+    font-family: 'New Walt Disney Font', sans-serif;
+    border-radius: 12px;
+    
+}
+
+.scoreBox {
+   display: flex;
+   justify-content: center;
+   margin-top: 25px;
+}
+
+#playerScore, #computerScore {
+    font-size: 180px;
+    animation: color-change 7s infinite;
+}
+
+.containerBox {
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.myfont {
+    text-align: center;
+    font-size: 24px; 
+    font-weight: bold;
+}
+
