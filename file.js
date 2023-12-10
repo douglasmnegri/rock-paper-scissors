@@ -1,13 +1,20 @@
+// This function closes the pop-up and remove the blur from the background
+function closePopup(){
+    popup.classList.remove('open-popup');
+    let blur = document.querySelector('#blur');
+    blur.classList.toggle('active');
+}
+
 // Initialize scores
  let playerScore = 0; 
  let computerScore = 0;
 
  //This function is reponsible for the player choice.
-
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
+function getPlayerChoice() {
 rock.onclick = function () {
     playerSelection = "rock";
 }
@@ -19,8 +26,10 @@ paper.onclick = function () {
 scissors.onclick = function () {
     playerSelection = "scissors";
 }
-// This function is responsible for the number of times the game is played, and it loops every part of the game.
+}
+getPlayerChoice();
 
+// This function is responsible for the number of times the game is played, and it loops every part of the game.
 const buttons = document.querySelectorAll('.playgame');
 buttons.forEach((button) => {
 button.addEventListener('click', () => {
@@ -29,19 +38,19 @@ button.addEventListener('click', () => {
 function getComputerChoice() {
 let randomNumber = Math.floor(Math.random() * (4-1) + 1);
 if(randomNumber === 1) {
-return "rock";
+computerSelection = "rock";
 }
 else if(randomNumber === 2) {
-return "paper";
+computerSelection = "paper";
 }
 else {
-return "scissors";
+computerSelection = "scissors";
 }
 }
+getComputerChoice();
 
 // playRound intent is to run a match between the computer and the user.
 function playRound(playerSelection, computerSelection) {
-    
      const win = (playerSelection === "rock" && computerSelection === "scissors") ||
      (playerSelection === "paper" && computerSelection === "rock") ||
      (playerSelection === "scissors" && computerSelection === "paper");
@@ -59,15 +68,10 @@ function playRound(playerSelection, computerSelection) {
      }
  
  } 
-     
-
-//We could make a new function and store the values of playerSelection inside of it, just like we did with computerChoice();
-
-     const computerSelection = getComputerChoice();
+     //This part of the code is reponsible for showing the result of each match between the player and the computer.
      const playRoundResult = playRound(playerSelection, computerSelection);
     
      const playerInput = document.querySelector('#playerInput');
-
      playerInput.textContent =  `Player input: ${playerSelection[0].toUpperCase() + playerSelection.slice(1)}`;
 
      const computerInput = document.querySelector('#computerInput');
@@ -79,14 +83,42 @@ function playRound(playerSelection, computerSelection) {
      const computerPoints = document.querySelector('#computerScore');
      const playerPoints = document.querySelector('#playerScore');
 
+     showResult(computerScore, playerScore);
 
-//We used an alert to inform the game is over after playerScore or computerScore reaches 5;
-     if (computerScore > 4) {
-        alert(`Computer Victory! ${computerScore} - ${playerScore}`);
+//We're no longer using an alert, we've created a pop-up that informs the result of the game, and that match is finished.
+    function showResult(computerScore, playerScore) {
+if (computerScore > 4) {
+        function openPopup() {
+            popup.classList.add('open-popup');
+
+        }
+        function toggle() {
+            let blur = document.querySelector('#blur');
+            blur.classList.toggle('active');
+        }
+
+        let message = document.querySelector('#message')
+        message.textContent = (`Computer Victory! ${playerScore} - ${computerScore} `);        
+        openPopup();
+        toggle();
+        
     }
-    else if(playerScore > 4) {
-        alert(`Player Victory! ${playerScore} - ${computerScore}`);
+else if(playerScore > 4) {
+        function openPopup() {
+            popup.classList.add('open-popup');
+        }
+        function toggle() {
+            let blur = document.querySelector('#blur');
+            blur.classList.toggle('active');
+        }
+
+        let message = document.querySelector('#message');
+        message.textContent = (`Player Victory! ${playerScore} - ${computerScore}`);
+
+        openPopup();
+        toggle();
     }
+}
 
      if(computerScore < 5 && playerScore < 5 ) {
     computerPoints.textContent = `${computerScore}`;
@@ -100,6 +132,5 @@ function playRound(playerSelection, computerSelection) {
         playerScore = 0;
     }
     });
-    
 });
 
